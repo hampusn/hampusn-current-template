@@ -1,0 +1,50 @@
+/* "Modal overlay" */
+#hampusn-current-template {
+  background: rgb(223, 150, 8);
+  border: 1px solid rgb(189, 127,6);
+  border-radius: 2px;
+  color: #fff;
+  font: 18px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 1em;
+  padding: 1em;
+  position: relative;
+  text-shadow: 1px 1px 2px rgba(189, 127,6, 1);
+  z-index: 999;
+}
+.hampusn-current-template__list li {
+  margin-bottom: 0.5em;
+}
+.hampusn-current-template__list span {
+  opacity: 0.7;
+}
+.hampusn-current-template__list strong {
+  font-weight: 700;
+}
+#hampusn-current-template-close {
+  color: #fff;
+  float: right;
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 1;
+  padding-left: 0.5em;
+  text-decoration: none;
+  text-shadow: 1px 1px 2px rgba(189, 127,6, 1);
+}
+/* Admin Menu bar */
+.hampusn-current-template-admin-menu-item {
+  background: rgb(223, 150, 8) !important;
+  color: #fff !important;
+}
+.hampusn-current-template-admin-menu-item:hover > .ab-item,
+.hampusn-current-template-admin-menu-item:hover .ab-sub-wrapper,
+.hampusn-current-template-admin-menu-item.hover > .ab-item,
+.hampusn-current-template-admin-menu-item.hover .ab-sub-wrapper {
+    background: rgb(223, 150, 8) !important;
+    color: #fff !important;
+}
+.hampusn-current-template-admin-menu-item strong {
+  font-weight: 700 !important;
+}
+.hampusn-current-template-admin-menu-item .ab-submenu span {
+  opacity: 0.8;
+}
