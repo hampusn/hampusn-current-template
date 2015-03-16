@@ -42,6 +42,9 @@
     background: rgb(223, 150, 8) !important;
     color: #fff !important;
 }
+.hampusn-current-template-admin-menu-item .ab-item {
+  white-space: nowrap;
+}
 .hampusn-current-template-admin-menu-item strong {
   font-weight: 700 !important;
 }
