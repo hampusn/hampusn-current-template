@@ -27,7 +27,7 @@ define('HAMPUSN_CURRENT_TEMPLATE_OPTION_NAME', 'hampusn_current_template');
  **/
 if (! class_exists('Hampusn_Current_Template_Admin')) {
   require 'includes/class-admin.php';
-  new Hampusn_Current_Template_Admin( HAMPUSN_CURRENT_TEMPLATE_OPTION_NAME );
+  new Hampusn_Current_Template_Admin( HAMPUSN_CURRENT_TEMPLATE_OPTION_NAME, plugin_basename( __FILE__ ) );
 }
 
 
