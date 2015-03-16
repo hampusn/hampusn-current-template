@@ -26,9 +26,11 @@ class Hampusn_Current_Template_Admin {
   // Name of the plugin which will be used in the admin menu 
   // and on the plugin settings page.
   private $_name = 'Current Template';
-  // Used as a slug for various wp functions and also for the url.
+  // Used as a slug for various wp functions.
   // It's set in hook_menu_items().
   private $_hook_suffix = false;
+  // Used for generating the settings page url.
+  private $_menu_slug = 'current-template';
   // Array containing the settings for this plugin.
   // The key is what the setting will be stored under in the database 
   // and the value is the field's settings.
@@ -55,7 +57,7 @@ class Hampusn_Current_Template_Admin {
    *
    * @author Hampus Nordin
    **/
-  public function __construct( $option_name = '' ) {
+  public function __construct( $option_name = '', $plugin_basename = '' ) {
     // The key which all settings/options are 
     // stored under in wp_options table.
     if ( ! empty( $option_name ) ) {
@@ -66,8 +68,25 @@ class Hampusn_Current_Template_Admin {
       $this->_options = $options;
     }
 
+    add_filter( 'plugin_action_links_' . $plugin_basename, array( $this, 'hook_action_links' ) );
     add_action( 'admin_menu', array( $this, 'hook_menu_items' ) );
     add_action( 'admin_init', array( $this, 'hook_init_settings' ) );
+  }
+
+
+  /**
+   * WP hook callback which adds action links to the plugin list page for this plugin.
+   * 
+   * Filter hook: plugin_action_links_PLUGIN_BASENAME
+   *
+   * @return array $links
+   * @author Hampus Nordin
+   **/
+  public function hook_action_links( $links ) {
+    $settings_page_link = '<a href="'. get_admin_url( null, 'options-general.php?page=' . $this->_menu_slug ) .'">Settings</a>';
+    // Add to beginning of array so the settings link comes before the Deactivate link.
+    array_unshift( $links, $settings_page_link );
+    return $links;
   }
 
 
@@ -83,7 +102,7 @@ class Hampusn_Current_Template_Admin {
    * @see    settings_page()
    **/
   public function hook_menu_items() {
-    $this->_hook_suffix = add_options_page( 'Hampusn Current Template', 'Current Template', 'manage_options', 'current-template', array( $this, 'settings_page' ) );
+    $this->_hook_suffix = add_options_page( 'Hampusn Current Template', 'Current Template', 'manage_options', $this->_menu_slug, array( $this, 'settings_page' ) );
   }
 
 

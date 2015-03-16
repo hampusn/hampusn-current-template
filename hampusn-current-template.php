@@ -3,7 +3,7 @@
 Plugin Name: Current Template
 Plugin URI: http://hampusnord.in/
 Description: This plugin adds the current template to the body and/or in the admin menu bar.
-Version: 0.0.1
+Version: 0.0.2
 Author: Hampus Nordin <hej@hampusnord.in>
 Author URI: http://hampusnord.in/
 Text Domain: hampusn_current_template
@@ -27,7 +27,7 @@ define('HAMPUSN_CURRENT_TEMPLATE_OPTION_NAME', 'hampusn_current_template');
  **/
 if (! class_exists('Hampusn_Current_Template_Admin')) {
   require 'includes/class-admin.php';
-  new Hampusn_Current_Template_Admin( HAMPUSN_CURRENT_TEMPLATE_OPTION_NAME );
+  new Hampusn_Current_Template_Admin( HAMPUSN_CURRENT_TEMPLATE_OPTION_NAME, plugin_basename( __FILE__ ) );
 }
 
 
