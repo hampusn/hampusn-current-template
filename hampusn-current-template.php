@@ -10,7 +10,7 @@ Text Domain: hampusn_current_template
 */
 
 // No Direct Access!
-defined('ABSPATH') or die('Plugin file cannot be accessed directly.');
+defined( 'ABSPATH ') or die( 'Plugin file cannot be accessed directly.' );
 
 /**
  * The option name which will be used with get_option() and update_option().
@@ -18,14 +18,14 @@ defined('ABSPATH') or die('Plugin file cannot be accessed directly.');
  * 
  * WARNING: CHANGING THIS MIGHT RESET AND/OR BLOAT THE SETTINGS FOR THIS PLUGIN IN THE DATABASE.
  **/
-define('HAMPUSN_CURRENT_TEMPLATE_OPTION_NAME', 'hampusn_current_template');
+define( 'HAMPUSN_CURRENT_TEMPLATE_OPTION_NAME', 'hampusn_current_template' );
 
 /**
  * Init Admin
  *
  * @author Hampus Nordin
  **/
-if (! class_exists('Hampusn_Current_Template_Admin')) {
+if ( ! class_exists( 'Hampusn_Current_Template_Admin' ) ) {
   require 'includes/class-admin.php';
   new Hampusn_Current_Template_Admin( HAMPUSN_CURRENT_TEMPLATE_OPTION_NAME, plugin_basename( __FILE__ ) );
 }

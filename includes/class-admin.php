@@ -8,7 +8,7 @@
  */
 
 // No Direct Access!
-defined('ABSPATH') or die('Plugin file cannot be accessed directly.');
+defined( 'ABSPATH' ) or die( 'Plugin file cannot be accessed directly.' );
 
 /**
  * Handles every part of the admin. Mainly the admin settings page.
@@ -130,13 +130,13 @@ class Hampusn_Current_Template_Admin {
     add_settings_section(
       $this->_tag . '_settings_section',
       'Settings',
-      function () use($name) {
-        echo '<p>Configuration options for the ' . esc_html($name) . ' plugin.</p>';
+      function () use( $name ) {
+        echo '<p>Configuration options for the ' . esc_html( $name ) . ' plugin.</p>';
       },
       $this->_hook_suffix
     );
     // Loops through all settings and adds them as fields.
-    foreach ($this->_settings as $field_name => $field_settings) {
+    foreach ( $this->_settings as $field_name => $field_settings ) {
       $field_settings[ 'field_name' ] = $field_name;
       add_settings_field(
         $this->_option_name . '_' . $field_name . '_setting',
